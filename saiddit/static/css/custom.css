@@ -1,0 +1,158 @@
+html, body
+{
+
+    background-color: #F5F5F5;
+
+}
+
+ul
+{
+    list-style-type: none;
+}
+
+@font-face {
+    font-family: Audiowide;
+    src: url(../fonts/Audiowide/Audiowide-Regular.ttf);
+}
+
+@font-face {
+    font-family: Lato;
+    src: url(../fonts/Lato/Lato-Regular.ttf);
+}
+
+
+
+@font-face {
+    font-family: Play;
+    src: url(../fonts/Play/Play-Regular.ttf);
+}
+
+.alert {
+  position: relative;
+  width:25%;
+  margin-top: 20px;
+}
+
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+
+.text-font{
+    font-family: Lato;
+}
+
+.nav-font{
+    font-family: Play;
+}
+
+.logo-font{
+    font-family: Audiowide;
+    font-size: 250%
+}
+
+
+.horizontal-center {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.block {display: block;}
+
+
+.vertical-center {
+  min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+  min-height: 100vh; /* These two lines are counted as one :-)       */
+
+  display: flex;
+  align-items: center;
+}
+.starter-template {
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
+.pull-xs-right {
+    float: right!important;
+}
+
+.truncate {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: clip;
+}
+
+.scroll-overflow{
+  overflow-y: auto;
+  height: 100px;
+  max-height: 100px;
+  }
+
+.scroll-overflow-large{
+  overflow-y: scroll;
+  max-height: 700px;
+}
+
+.margin-top{
+  margin-top: 40px;
+}
+
+.margin-top-text{
+  margin-top: 15px;
+}
+
+
+.margin-bot{
+  margin-bottom: 40px;
+}
+.margin-top-bot-5{
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.right {
+   text-align: right;
+}
+
+.left {
+   text-align: left;
+}
+
+
+.center {
+   text-align: center;
+}
+
+
+
+.navbar-color{
+    background-color: #1A2930;
+    border-color: #1A2930;
+}
+
+
+
+.navbar {
+  border-bottom: 0px;
+}
+
+.navbar-static-top {
+  margin-bottom: 0px;
+}
+
+
+
+.navbar-default .navbar-brand {
+    color: #C06014;
+
+}
+.navbar-default {
+  background-color: #0;
+  border-color: #0;
+  color: white;
+}
+
+
+
+.hidden {
+  display: none;
+}

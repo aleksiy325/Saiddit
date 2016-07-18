@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="{{ url_for('static', filename='images/vihdifavicon.png') }}">
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{ url_for('static', filename='bootstrap-3.3.6-dist/css/bootstrap.min.css') }}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{{ url_for('static', filename='css/custom.css') }}" rel="stylesheet">
+
+
+
+
+    </head>
+
+    <body>
+        <nav class="navbar  navbar-default  navbar-static-top  navbar-color ">
+          <div class="container">
+              <div class="navbar-header">
+                  <a class="navbar-brand logo-font" href="/">saiddit</a>
+              </div>
+              <div class="nav-font">
+                  {% block navbar %}
+                  {% endblock %}
+              </div>
+          </div>
+        </nav>
+
+          <div class="margin-top">
+            {% block headers %}
+            {% endblock %}
+          </div>
+
+
+
+          <div>
+            {% block main %}
+            {% endblock %}
+          </div>
+
+
+
+    </body>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="{{ url_for('static', filename='bootstrap-3.3.6-dist/js/bootstrap.min.js') }}"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="{{ url_for('static', filename='bootstrap-3.3.6-dist/js/ie10-viewport-bug-workaround.js') }}"></script>
+
+     <script src="{{ url_for('static', filename='js/jquery-3.0.0.min.js') }}"></script>
+
+
+</html>

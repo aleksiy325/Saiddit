@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+
+{% block navbar %}
+    <div class="col-md-9 truncate margin-top-text">
+    {% for sub in defaults %}
+        <span>/</span>
+        <a class="" href="/s/{{ sub[1] }}">{{ sub[1] }}</a>
+    {% endfor %}
+    </div>
+
+    {% if current_user.is_authenticated %}
+        <div class="pull-xs-right">
+            <a class="navbar-brand " href="logout">Logout</a>
+        </div>
+    {% else %}
+        <div class="pull-xs-right">
+            <a class="navbar-brand " href="login">Login</a>
+        </div>
+    {% endif %}
+
+{% endblock %}
+
+
+{% block main %}
+
+
+    <div class="text-font col-md-6 col-md-offset-2 ">
+        <ul class="list-group">
+        {% for post in posts %}
+            <li  class="list-group-item">
+                <form class = "pull-xs-right" action="" method="post">
+                    <button class="btn btn-danger" name="btn" value="{{loop.index}}">X Delete</button>
+                </form>
+
+                <h4>  <strong>{{ post[0] }}</strong> <a href="{{ post[5] }}">{{ post[1] }} </a></h4>
+
+                <div  class="col-md-offset-1">
+                    <a href="/p/{{post[7]}}"> {{post[6] }} comments </a>
+
+                    <span class="pull-xs-right"> posted {{post[3]}}  in <a href="/s/{{post[4]}}" >{{post[4]}}</a></span>
+                </div>
+            </li>
+        {% endfor %}
+        </ul>
+    </div>
+
+     {% if current_user.is_authenticated %}
+        <div class="text-font sidebar-module  list-group col-md-2">
+                <li  class="list-group-item"> <h4><strong>Welcome {{current_user.username }}</strong></h4> </li>
+                <li class="list-group-item" >
+                    <strong>Friends:</strong>
+                    <ul>
+                    {% for friend in current_user.friends %}
+                        <li  class="col-md-offset-1"><a href="/u/{{friend[0]}}">{{friend[0]}}</a></li>
+                    {% endfor %}
+                    </ul>
+                </li>
+        </div>
+     {% endif %}
+
+{% endblock %}
