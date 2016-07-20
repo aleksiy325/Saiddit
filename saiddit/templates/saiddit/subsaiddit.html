@@ -7,6 +7,22 @@
 
 
 {% block main %}
+<div class="text-font col-md-8 col-md-offset-2 ">
+    <ul class="list-group">
+        <li class="list-group-item">
+            <span  style="font-size:24px; font-weight:bold;"  >{{ sub }}</span>
+            <form class=" form-inline pull-xs-right" id="search_form" method="post" >
+                    <div class="form-group">
+                    <input id="id_search" name="search" type="text" placeholder="Search Term"
+                           class="form-control input-md">
+                    </div>
+                    <button type="submit" class="btn btn-default">Search</button>
+
+            </form>
+
+        </li>
+    </ul>
+</div>
 
 
 <div class="text-font col-md-6 col-md-offset-2 ">

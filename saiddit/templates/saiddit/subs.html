@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+
+{% block navbar %}
+
+{% endblock %}
+
+
+{% block main %}
+
+
+<div class="text-font col-md-6 col-md-offset-2 ">
+    <ul class="list-group">
+
+
+        <li class="list-group-item disabled">
+            <h3>Friend's Subscriptions</h3>
+        </li>
+        {% if not subs %}
+        <li class="list-group-item "><span>Your friends are not subscribed to any subsaiddits. :(</span></li>
+        {%else %}
+        <li class="list-group-item">
+            {% for sub in subs %}
+            <span>/</span>
+            <a class="" href="/s/{{ sub[1] }}">{{ sub[1] }}</a>
+            {% endfor %}
+        </li>
+        {% endif %}
+    </ul>
+</div>
+
+
+{% endblock %}

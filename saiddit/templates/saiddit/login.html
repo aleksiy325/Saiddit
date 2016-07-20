@@ -1,46 +1,45 @@
 {% extends 'base.html' %}
 
 {% block main %}
-      <div class="container margin-top ">
-        <form  class=" horizontal-center col-md-4   " id="login_form" method="post" action="login">
-              <!-- username input-->
-                    <div class="form-group ">
-                      <div class="">
-                        <input id="id_username" name="username" type="text" placeholder="Username" class="form-control input-md">
-                      </div>
-                    </div>
+<div class="container margin-top ">
+    <form class=" horizontal-center col-md-4   " id="login_form" method="post" action="login">
+        <!-- username input-->
+        <div class="form-group ">
+            <div class="">
+                <input id="id_username" name="username" type="text" placeholder="Username"
+                       class="form-control input-md">
+            </div>
+        </div>
 
-                     <!-- Password input-->
-                    <div class="form-group">
-                      <div class="">
-                          <input id="id_password" maxlength="128" name="password" type="password" placeholder="Password" class="form-control input-md">
-                      </div>
-                    </div>
-
-
-
-                    {% if invalid_pass %}
-                         <div class="text-font">
-                            <h4 > Password is invalid.</h4>
-                        </div>
-                    {% endif %}
-
-                    {% if invalid_user %}
-                         <div class="text-font">
-                            <h4 >Username not found.</h4>
-                        </div>
-                    {% endif %}
+        <!-- Password input-->
+        <div class="form-group">
+            <div class="">
+                <input id="id_password" maxlength="128" name="password" type="password" placeholder="Password"
+                       class="form-control input-md">
+            </div>
+        </div>
 
 
+        {% if invalid_pass %}
+        <div class="text-font">
+            <h4> Password is invalid.</h4>
+        </div>
+        {% endif %}
 
-                    <div>
-                        <input class="btn btn-lg btn-default col-md-4 horizontal-center" type="submit" name="submit" value="Login"/>
-                    </div>
+        {% if invalid_user %}
+        <div class="text-font">
+            <h4>Username not found.</h4>
+        </div>
+        {% endif %}
 
 
+        <div>
+            <input class="btn btn-lg btn-default col-md-4 horizontal-center" type="submit" name="submit" value="Login"/>
+        </div>
 
-        </form>
+
+    </form>
 
 
-      </div>
+</div>
 {% endblock %}

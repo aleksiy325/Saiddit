@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+
+
+{% block navbar %}
+
+{% endblock %}
+
+
+{% block main %}
+<div class="text-font col-md-8 col-md-offset-2 ">
+    <ul class="list-group">
+        <li class="list-group-item">
+            <div>
+            <h2>{{ user.username }}</h2>
+            <h4>Reputation: {{user.reputation}}</h4>
+            </div>
+            <span >
+                {% for sub in user.subs %}
+                <span>/</span>
+                <a class="" href="/s/{{ sub[1] }}">{{ sub[1] }}</a>
+                {% endfor %}
+            </span>
+
+
+
+        </li>
+    </ul>
+</div>
+
+<div class="text-font col-md-6 col-md-offset-2 ">
+    <ul class="list-group">
+
+
+        <li class="list-group-item disabled">
+            <h3>Friends</h3>
+        </li>
+        {% if not user.friends %}
+                 <li class="list-group-item "><span>This user has no friends :(</span></li>
+        {%else %}
+        <li class="list-group-item">
+
+                {% for friend in user.friends %}
+                 <a href="/u/{{friend[0]}}">{{friend[0]}}</a>
+                {% endfor %}
+
+        </li>
+        {% endif %}
+
+
+        <li class="list-group-item disabled">
+            <h3>User Posts</h3>
+        </li>
+        {% if not posts %}
+        <li class="list-group-item "><span>This user has no posts.</span></li>
+        {% endif %}
+
+        {% for post in posts %}
+        <li class="list-group-item ">
+
+            <h4><strong>{{ post[0] }}</strong> <a href="{{ post[5] }}">{{ post[1] }} </a></h4>
+
+            <div class="col-md-offset-1">
+                <a href="/p/{{post[7]}}"> {{post[6] }} comments </a>
+                <span class="pull-xs-right"> posted {{post[3]}} by  <a href="/u/{{ post [2] }}">{{ post [2] }}</a> in <a
+                        href="/s/{{post[4]}}">{{post[4]}}</a> </span>
+            </div>
+        </li>
+        {% endfor %}
+
+        <li class="list-group-item disabled">
+            <h3>User Favorites</h3>
+        </li>
+        {% if not user.favorites %}
+        <li class="list-group-item "><span>This user has no favorited posts.</span></li>
+        {% endif %}
+        {% for post in user.favorites %}
+        <li class="list-group-item ">
+
+            <h4><strong>{{ post[0] }}</strong> <a href="{{ post[5] }}">{{ post[1] }} </a></h4>
+
+            <div class="col-md-offset-1">
+                <a href="/p/{{post[7]}}"> {{post[6] }} comments </a>
+                <span class="pull-xs-right"> posted {{post[3]}} by  <a href="/u/{{ post [2] }}">{{ post [2] }}</a> in <a
+                        href="/s/{{post[4]}}">{{post[4]}}</a> </span>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+
+
+{% endblock %}

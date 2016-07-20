@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -16,48 +16,87 @@
     <link href="{{ url_for('static', filename='css/custom.css') }}" rel="stylesheet">
 
 
+</head>
 
-
-    </head>
-
-    <body>
-        <nav class="navbar  navbar-default  navbar-static-top  navbar-color ">
-          <div class="container">
-              <div class="navbar-header">
-                  <a class="navbar-brand logo-font" href="/">saiddit</a>
-              </div>
-              <div class="nav-font">
-                  {% block navbar %}
-                  {% endblock %}
-              </div>
-          </div>
-        </nav>
-
-          <div class="margin-top">
-            {% block headers %}
+<body>
+<nav class="navbar  navbar-default  navbar-static-top  navbar-color ">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand logo-font" href="/">saiddit</a>
+        </div>
+        <div class="nav-font">
+            {% block navbar %}
             {% endblock %}
-          </div>
+
+            <div class="col-md-9 truncate margin-top-text">
+                {% for sub in defaults %}
+                <span>/</span>
+                <a class="" href="/s/{{ sub[1] }}">{{ sub[1] }}</a>
+                {% endfor %}
+            </div>
+
+            {% if current_user.is_authenticated %}
+            <div class="pull-xs-right">
+                <a class="navbar-brand " href="logout">Logout</a>
+            </div>
+            {% else %}
+            <div class="pull-xs-right">
+                <a class="navbar-brand " href="login">Login</a>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</nav>
+
+<div class="margin-top">
+    {% block headers %}
+    {% endblock %}
+</div>
 
 
-
-          <div>
-            {% block main %}
-            {% endblock %}
-          </div>
+<div>
+    {% block main %}
+    {% endblock %}
 
 
+    {% if current_user.is_authenticated %}
+    <div class="text-font sidebar-module  list-group col-md-2">
+        <li class="list-group-item">
+            <h4><strong>Welcome {{current_user.username }} </strong></h4><h4> Rep: {{current_user.reputation}}</h4>
+        </li>
+        <li class="list-group-item">
+            <strong>Friends:</strong>
+            <ul>
+                {% for friend in current_user.friends %}
+                <li ><a href="/u/{{friend[0]}}">{{friend[0]}}</a><span class="pull-xs-right">{{ friend[1] }}</span>
+                </li>
+                {% endfor %}
+            </ul>
+        </li>
+        <li class="list-group-item">
+            <a href="/myposts">My Posts</a> <br>
+            <a href="/frndpost">Friends Posts</a><br>
+            <a href="/frndfavs">Friends Favorites</a><br>
+             <a href="/frndsubs">Friends Subs</a><br>
+        </li>
 
-    </body>
+    </div>
+    {% endif %}
+
+</div>
 
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="{{ url_for('static', filename='bootstrap-3.3.6-dist/js/bootstrap.min.js') }}"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="{{ url_for('static', filename='bootstrap-3.3.6-dist/js/ie10-viewport-bug-workaround.js') }}"></script>
+</body>
 
-     <script src="{{ url_for('static', filename='js/jquery-3.0.0.min.js') }}"></script>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="{{ url_for('static', filename='bootstrap-3.3.6-dist/js/bootstrap.min.js') }}"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="{{ url_for('static', filename='bootstrap-3.3.6-dist/js/ie10-viewport-bug-workaround.js') }}"></script>
+
+<script src="{{ url_for('static', filename='js/jquery-3.0.0.min.js') }}"></script>
 
 
 </html>

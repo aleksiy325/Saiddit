@@ -5,6 +5,11 @@ html, body
 
 }
 
+.list-group-item.disabled, .list-group-item.disabled:focus, .list-group-item.disabled:hover{
+     cursor: default;
+}
+
+
 ul
 {
     list-style-type: none;
